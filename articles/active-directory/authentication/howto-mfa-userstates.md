@@ -39,12 +39,12 @@ Azure Multi-factor Authentication のユーザー アカウントには、次の
 | Status | 説明 | 非ブラウザー アプリに影響があるか | ブラウザー アプリに影響があるか | 影響を受ける先進認証 |
 |:---:| --- |:---:|:--:|:--:|
 | 無効 | Azure Multi-Factor Authentication に登録されていない、新しいユーザーの既定の状態です。 | いいえ | いいえ | いいえ |
-| Enabled | ユーザーは多要素認証に登録されていますが、まだ登録されていません。 次回のサインイン時に登録することを求められます。 | いいえ。  これらは登録プロセスが完了するまで機能し続けます。 | はい。 セッションの有効期限が切れると、Azure Multi-Factor Authentication の登録が必要になります。| はい。 アクセス トークンの有効期限が切れると、Azure Multi-Factor Authentication の登録が必要になります。 |
-| 強制 | ユーザーは登録されており、Azure Multi-Factor Authentication の登録プロセスが完了しています。 | はい。 アプリはアプリ パスワードを必要とします。 | はい。 ログイン時に Azure Multi-Factor Authentication が必要です。 | はい。 ログイン時に Azure Multi-Factor Authentication が必要です。 |
+| Enabled | ユーザーは多要素認証に登録されていますが、まだ登録されていません。 次回のサインイン時に登録することを求められます。 | いいえ。  これらはMFA 認証方法登録プロセスが完了するまで機能し続けます。 | はい。 セッションの有効期限が切れると、Azure Multi-Factor Authentication の登録が必要になります。| はい。 アクセス トークンの有効期限が切れると、Azure Multi-Factor Authentication の登録が必要になります。 |
+| 強制 | ユーザーは登録されており、Azure Multi-Factor Authentication の MFA 認証方法登録プロセスが完了しています。 | はい。 アプリはアプリ パスワードを必要とします。 | はい。 ログイン時に Azure Multi-Factor Authentication が必要です。 | はい。 ログイン時に Azure Multi-Factor Authentication が必要です。 |
 
 ユーザーの状態には、管理者がユーザーを Azure Multi-Factor Authentication に登録したかどうか、およびユーザーが登録プロセスを完了したかどうかが反映されます。
 
-すべてのユーザーの状態は、 *[無効]* から始まります。 管理者がユーザーを Azure Multi-Factor Authentication に登録すると、ユーザーの状態は *[有効]* に変わります。 [有効] 状態のときにユーザーがサインインして登録プロセスを完了すると、ユーザーの状態は *[適用]* に変わります。
+すべてのユーザーの状態は、 *[無効]* から始まります。 管理者がユーザーを Azure Multi-Factor Authentication に登録すると、ユーザーの状態は *[有効]* に変わります。 [有効] 状態のときにユーザーがサインインして登録プロセスを完了すると、ユーザーの状態は *[強制]* に変わります。
 
 > [!NOTE]
 > 電話や電子メールなどの登録の詳細が既にあるユーザー オブジェクトで MFA を再度有効にする場合には、管理者は Azure portal または PowerShell を使用して MFA を再登録する必要があります。 ユーザーが再登録していない場合、MFA の状態は *有効* から MFA 管理 UI で *強制* に移行されません。
